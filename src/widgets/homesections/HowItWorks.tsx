@@ -8,14 +8,16 @@ type HowType = {
 }
 
 function HowItWorks() {
+
   const { data, isLoading } = useHowItWorks()
 
   if (isLoading) return <p>Loading...</p>
 
-  const steps: HowType[] = data || []
+  const steps: HowType[] = data?.results || []
 
   return (
     <section className="bg-gray-900 py-20">
+
       <div className="max-w-7xl mx-auto px-6">
 
         <h1 className="text-white text-[40px] font-semibold text-center mb-20">
@@ -53,12 +55,15 @@ function HowItWorks() {
         </div>
 
         <div className="flex justify-center mt-[80px]">
+
           <button className="border border-white text-white px-10 py-3 rounded-full hover:bg-white hover:text-[#ff4d0d] transition">
             Start Now
           </button>
+
         </div>
 
       </div>
+
     </section>
   )
 }

@@ -14,7 +14,7 @@ function News() {
 
   if (isLoading) return <p>Loading...</p>
 
-  const news: NewsType[] = data || []
+  const news: NewsType[] = data?.results || []
 
   return (
     <section className="py-[80px]">
@@ -57,7 +57,6 @@ function News() {
                 </Link>
 
               </div>
-
             </div>
           ))}
 
