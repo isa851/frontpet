@@ -6,7 +6,8 @@ function Banner(){
 
   if (isLoading) return null
 
-  const banner = data?.[0]
+  const banner = data?.results?.[0]
+
   return (
     <div
       style={{

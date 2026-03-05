@@ -5,7 +5,7 @@ type NewsType = {
   id: number
   title: string
   description: string
-  image: string
+  images: string
 }
 
 function News() {
@@ -14,9 +14,7 @@ function News() {
 
   if (isLoading) return <p>Loading...</p>
 
-  const news: NewsType[] = Array.isArray(data)
-    ? data
-    : data?.results ?? []
+  const news: NewsType[] = data?.results || []
 
   return (
     <section className="py-[80px]">
@@ -36,7 +34,7 @@ function News() {
             >
 
               <img
-                src={item.image}
+                src={item.images}
                 alt={item.title}
                 className="w-full h-[220px] object-cover"
               />

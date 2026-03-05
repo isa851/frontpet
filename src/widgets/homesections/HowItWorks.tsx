@@ -4,7 +4,7 @@ type HowType = {
   id: number
   title: string
   description: string
-  icon?: string
+  icon: string
 }
 
 function HowItWorks() {
@@ -13,9 +13,7 @@ function HowItWorks() {
 
   if (isLoading) return <p>Loading...</p>
 
-  const steps: HowType[] = Array.isArray(data)
-    ? data
-    : data?.results ?? []
+  const steps: HowType[] = data?.results || []
 
   return (
     <section className="bg-gray-900 py-20">
@@ -29,17 +27,16 @@ function HowItWorks() {
         <div className="grid md:grid-cols-4 gap-12 text-white">
 
           {steps.map((item) => (
+
             <div key={item.id} className="text-center">
 
               <div className="w-[70px] h-[70px] border border-white rounded-full flex items-center justify-center mx-auto mb-6">
 
-                {item.icon && (
-                  <img
-                    src={item.icon}
-                    alt={item.title}
-                    className="w-[30px] h-[30px]"
-                  />
-                )}
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-[30px] h-[30px]"
+                />
 
               </div>
 
@@ -52,6 +49,7 @@ function HowItWorks() {
               </p>
 
             </div>
+
           ))}
 
         </div>
