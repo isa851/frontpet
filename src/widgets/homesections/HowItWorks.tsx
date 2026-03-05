@@ -13,7 +13,9 @@ function HowItWorks() {
 
   if (isLoading) return <p>Loading...</p>
 
-  const steps: HowType[] = data || []
+  const steps: HowType[] = Array.isArray(data)
+    ? data
+    : data?.results ?? []
 
   return (
     <section className="bg-gray-900 py-20">

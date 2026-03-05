@@ -13,7 +13,13 @@ function OurSuccess() {
 
   if (isLoading) return null
 
-  const success: SuccessType[] = data || []
+  let success: SuccessType[] = []
+
+  if (Array.isArray(data)) {
+    success = data
+  } else if (data?.results) {
+    success = data.results
+  }
 
   return (
     <section className="py-20">
