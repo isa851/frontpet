@@ -12,7 +12,7 @@ function Gallery() {
   const images = data?.results || []
 
   const PAGE_SIZE = 10
-  const totalPages = Math.ceil(data.count / PAGE_SIZE)
+  const totalPages = Math.ceil((data?.count || 0) / PAGE_SIZE)
 
   return (
     <section className="py-[40px]">
@@ -26,15 +26,16 @@ function Gallery() {
               key={item.id}
               className="overflow-hidden rounded-2xl group cursor-pointer"
             >
+
               <img
                 src={item.image}
                 className="w-full h-[260px] object-cover group-hover:scale-110 transition duration-500"
               />
+
             </div>
           ))}
 
         </div>
-
 
         <div className="flex justify-center mt-12 gap-3">
 

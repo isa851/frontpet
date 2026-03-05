@@ -14,7 +14,7 @@ function News() {
   const newsList = data?.results || []
 
   const PAGE_SIZE = 9
-  const totalPages = Math.ceil(data.count / PAGE_SIZE)
+  const totalPages = Math.ceil((data?.count || 0) / PAGE_SIZE)
 
   return (
     <section className="py-[100px]">

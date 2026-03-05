@@ -9,7 +9,6 @@ type NeedSupportType = {
 }
 
 export const useNeedSupport = () => {
-
   return useMutation({
     mutationFn: (data: NeedSupportType) =>
       api("/home/need-support/", {
@@ -17,5 +16,4 @@ export const useNeedSupport = () => {
         body: JSON.stringify(data)
       })
   })
-
 }
