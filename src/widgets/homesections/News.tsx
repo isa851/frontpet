@@ -8,17 +8,13 @@ type NewsType = {
   image: string
 }
 
-type NewsResponse = {
-  results: NewsType[]
-}
-
 function News() {
 
   const { data, isLoading } = useLatestNews()
 
   if (isLoading) return <p>Loading...</p>
 
-  const news: NewsType[] = (data as NewsResponse)?.results || []
+  const news: NewsType[] = data || []
 
   return (
     <section className="py-[80px]">

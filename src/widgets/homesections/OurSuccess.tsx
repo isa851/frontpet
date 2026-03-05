@@ -7,17 +7,13 @@ type SuccessType = {
   description: string
 }
 
-type SuccessResponse = {
-  results: SuccessType[]
-}
-
 function OurSuccess() {
 
   const { data, isLoading } = useSuccess()
 
   if (isLoading) return null
 
-  const success: SuccessType[] = (data as SuccessResponse)?.results || []
+  const success: SuccessType[] = data || []
 
   return (
     <section className="py-20">

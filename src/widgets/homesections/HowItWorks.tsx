@@ -7,17 +7,13 @@ type HowType = {
   icon?: string
 }
 
-type HowResponse = {
-  results: HowType[]
-}
-
 function HowItWorks() {
 
   const { data, isLoading } = useHowItWorks()
 
   if (isLoading) return <p>Loading...</p>
 
-  const steps: HowType[] = (data as HowResponse)?.results || []
+  const steps: HowType[] = data || []
 
   return (
     <section className="bg-gray-900 py-20">
