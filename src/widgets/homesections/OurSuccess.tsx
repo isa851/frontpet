@@ -7,13 +7,17 @@ type SuccessType = {
   description: string
 }
 
+type SuccessResponse = {
+  results: SuccessType[]
+}
+
 function OurSuccess() {
 
   const { data, isLoading } = useSuccess()
 
   if (isLoading) return null
 
-  const success: SuccessType[] = data?.results || []
+  const success: SuccessType[] = (data as SuccessResponse)?.results || []
 
   return (
     <section className="py-20">
@@ -30,7 +34,7 @@ function OurSuccess() {
             <div key={item.id}>
 
               <h2 className="text-[50px]">
-                <CountUp end={Number(item.title)} duration={2}/>+
+                <CountUp end={Number(item.title)} duration={2} />+
               </h2>
 
               <p className="text-gray-500">
